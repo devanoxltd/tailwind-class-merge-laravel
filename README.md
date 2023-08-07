@@ -144,10 +144,10 @@ This will now render the following HTML:
 The package registers a Blade directive which can be used to merge classes in your Blade views:
 
 ```php
-@tailwindClass('w-10 h-10 rounded-full bg-red-500 bg-blue-500') // w-10 h-10 rounded-full bg-blue-500
+@tailwindClass('w-10 h-10 rounded-full bg-red-500 bg-blue-500') // class="w-10 h-10 rounded-full bg-blue-500"
 
 // or multiple arguments
-@tailwindClass('w-10 h-10 rounded-full bg-red-500', 'bg-blue-500') // w-10 h-10 rounded-full bg-blue-500
+@tailwindClass('w-10 h-10 rounded-full bg-red-500', 'bg-blue-500') // class="w-10 h-10 rounded-full bg-blue-500"
 ```
 
 If you want to rename the blade directive, you can do so in the `config/tailwind-class-merge.php` configuration file:

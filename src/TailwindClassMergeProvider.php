@@ -47,7 +47,10 @@ class TailwindClassMergeProvider extends ServiceProvider
                 return;
             }
 
-            $bladeCompiler->directive($name, fn (?string $expression) => "<?php echo tailwindClass({$expression}); ?>");
+            $bladeCompiler->directive(
+                $name,
+                fn (?string $expression) => "<?php echo 'class=\"' . tailwindClass({$expression}) . '\"'; ?>"
+            );
         });
     }
 
