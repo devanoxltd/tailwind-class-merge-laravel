@@ -25,6 +25,9 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
 
         $this->app->alias(TailwindClassMergeContract::class, 'tailwind-class-merge');
         $this->app->alias(TailwindClassMergeContract::class, TailwindClassMerge::class);
+
+        $this->registerBladeDirectives();
+        $this->registerAttributesBagMacros();
     }
 
     public function boot(): void
@@ -35,8 +38,6 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->registerBladeDirectives();
-        $this->registerAttributesBagMacros();
     }
 
     protected function registerBladeDirectives(): void
