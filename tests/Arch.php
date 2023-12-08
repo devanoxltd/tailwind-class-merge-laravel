@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('facades')
     ->expect('TailwindClassMerge\Laravel\Facades\TailwindClassMerge')
     ->toOnlyUse([
@@ -7,7 +9,7 @@ test('facades')
     ]);
 
 test('service providers')
-    ->expect('TailwindClassMerge\Laravel\TailwindClassMergeProvider')
+    ->expect('TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider')
     ->toOnlyUse([
         'Illuminate\Contracts\Support\DeferrableProvider',
         'Illuminate\Support\ServiceProvider',
@@ -16,6 +18,7 @@ test('service providers')
         'TailwindClassMerge',
 
         // helpers...
+        'app',
         'config',
         'config_path',
         'resolve',

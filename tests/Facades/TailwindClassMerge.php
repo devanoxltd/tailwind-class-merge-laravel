@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Config\Repository;
 use TailwindClassMerge\Laravel\Facades\TailwindClassMerge;
-use TailwindClassMerge\Laravel\TailwindClassMergeProvider;
+use TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider;
 
 it('resolves resources', function () {
     $app = app();
@@ -12,7 +14,7 @@ it('resolves resources', function () {
         ],
     ]));
 
-    (new TailwindClassMergeProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
     TailwindClassMerge::setFacadeApplication($app);
 

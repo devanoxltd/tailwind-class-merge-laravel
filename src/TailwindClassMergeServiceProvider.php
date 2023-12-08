@@ -10,7 +10,7 @@ use Illuminate\View\ComponentAttributeBag;
 use TailwindClassMerge\Contracts\TailwindClassMergeContract;
 use TailwindClassMerge\TailwindClassMerge;
 
-class TailwindClassMergeProvider extends ServiceProvider
+class TailwindClassMergeServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
@@ -19,6 +19,7 @@ class TailwindClassMergeProvider extends ServiceProvider
                 TailwindClassMergeContract::class,
                 static fn (): TailwindClassMerge => TailwindClassMerge::factory()
                     ->withConfiguration(config('tailwind-class-merge', []))
+                    ->withCache(app('cache')->store()) // @phpstan-ignore-line
                     ->make()
             );
 
@@ -35,7 +36,7 @@ class TailwindClassMergeProvider extends ServiceProvider
         }
 
         $this->registerBladeDirectives();
-        $this->registerAttributesBagMacro();
+        $this->registerAttributesBagMacros();
     }
 
     protected function registerBladeDirectives(): void
@@ -49,18 +50,39 @@ class TailwindClassMergeProvider extends ServiceProvider
 
             $bladeCompiler->directive(
                 $name,
-                fn (?string $expression) => "<?php echo 'class=\"' . tailwindClass({$expression}) . '\"'; ?>"
+                fn (?string $expression): string => "<?php echo 'class=\"' . tailwindClass({$expression}) . '\"'; ?>"
             );
         });
     }
 
-    protected function registerAttributesBagMacro(): void
+    protected function registerAttributesBagMacros(): void
     {
-        ComponentAttributeBag::macro('tailwindClass', function (...$args): static {
-            $this->attributes['class'] = resolve(TailwindClassMergeContract::class)->merge($args, ($this->attributes['class'] ?? ''));
+        ComponentAttributeBag::macro('tailwindClass', function (...$args): ComponentAttributeBag {
+            /** @var ComponentAttributeBag $this */
+            $this->offsetSet('class', resolve(TailwindClassMergeContract::class)->merge($args, ($this->get('class', ''))));
 
             return $this;
         });
+
+        ComponentAttributeBag::macro('tailwindClassFor', function (string $for, ...$args): ComponentAttributeBag {
+            /** @var ComponentAttributeBag $this */
+
+            /** @var TailwindClassMergeContract $instance */
+            $instance = resolve(TailwindClassMergeContract::class);
+
+            $attribute = 'class' . ($for !== '' ? ':' . $for : '');
+
+            /** @var string $classes */
+            $classes = $this->get($attribute, '');
+
+            $this->offsetSet('class', $instance->merge($args, $classes));
+
+            return $this->only('class');
+        });
+
+        ComponentAttributeBag::macro('withoutTailwindMergeClasses', fn (): ComponentAttributeBag =>
+            /** @var ComponentAttributeBag $this */
+            $this->whereDoesntStartWith('class:')); // @phpstan-ignore-line
     }
 
     /**

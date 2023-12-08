@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./art/example.png" width="600" alt="TailwindClassMerge for Laravel">
+    <img src="https://raw.githubusercontent.com/devanoxLtd/tailwind-class-merge-laravel/main/art/example.png" width="600" alt="TailwindClassMerge for Laravel">
     <p align="center">
         <a href="https://github.com/devanoxLtd/tailwind-class-merge-laravel/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/devanoxLtd/tailwind-class-merge-laravel/tests.yml?branch=main&label=tests&style=round-square"></a>
         <a href="https://packagist.org/packages/devanox/tailwind-class-merge-laravel"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/devanox/tailwind-class-merge-laravel"></a>
@@ -18,9 +18,6 @@ Supports Tailwind v3.0 up to v3.3.
 
 If you find this package helpful, please consider sponsoring the maintainer:
 - Devanox Private Limited: **[github.com/sponsors/devanoxLtd](https://github.com/sponsors/devanoxLtd)**
-
-
-> **Attention:** This package is still in early development.
 
 > If you are **NOT** using Laravel, you can use the [TailwindClassMerge for PHP](https://github.com/devanoxLtd/tailwind-class-merge-php) directly.
 
@@ -43,10 +40,10 @@ First, install `TailwindClassMerge for Laravel` via the [Composer](https://getco
 composer require devanox/tailwind-class-merge-laravel
 ```
 
-Next, publish the configuration file:
+Optionally, publish the configuration file:
 
 ```bash
-php artisan vendor:publish --provider="TailwindClassMerge\Laravel\TailwindClassMergeProvider"
+php artisan vendor:publish --provider="TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider"
 ```
 
 This will create a `config/tailwind-class-merge.php` configuration file in your project, which you can modify to your needs
@@ -132,13 +129,46 @@ Now you can use your Blade components and pass additional classes to merge:
 <x-circle class="bg-blue-500" />
 ```
 
-This will now render the following HTML:
+This will render the following HTML:
 
 ```html
 <div class="w-10 h-10 rounded-full bg-blue-500"></div>
 ```
 
 > **Note:** Usage of `$attributes->merge(['class' => '...'])` is currently not supported due to limitations in Laravel.
+
+#### Merge classes on multiple elements
+By default Laravel allows you to only merge classes in one place. But with `TailwindClassMerge` you can merge classes on multiple elements by using `tailwindClassFor()`:
+
+```blade
+// button.blade.php
+<button {{ $attributes->withoutTailwindMergeClasses()->tailwindClass('p-2 bg-gray-900 text-white') }}>
+    <svg {{ $attributes->tailwindClassFor('icon', 'h-4 text-gray-500') }} viewBox="0 0 448 512"><path d="..."/></svg>
+
+    {{ $slot }}
+</button>
+```
+
+You can now specify additional classes for the button and the svg icon:
+
+```blade
+// your-view.blade.php
+<x-button class="bg-blue-900" class:icon="text-blue-500">
+  Click Me
+</x-button>
+```
+
+This will render the following HTML:
+
+```html
+<button class="p-2 blue text-white">
+  <svg class="h-4 text-blue-500" viewBox="0 0 448 512"><path d="..."/></svg>
+
+  Click Me
+</button>
+```
+
+> Note: Use `withoutTailwindMergeClasses()` on your main attributes bag, otherwise all `class:xyz` attributes will be rendered in the output.
 
 ### Use Laravel Blade Directive
 The package registers a Blade directive which can be used to merge classes in your Blade views:
@@ -188,11 +218,47 @@ Take a look at the [TailwindClassMerge for PHP](https://github.com/devanoxLtd/ta
 
 ## Configuration
 
-> **Note:** To do
+If you are using Tailwind CSS without any extra config, you can use TailwindClassMerge right away. And stop reading here.
 
-### Custom Tailwind Config
+If you're using a custom Tailwind config, you may need to configure TailwindClassMerge as well to merge classes properly.
 
-> **Note:** To do
+By default TailwindClassMerge is configured in a way that you can still use it if all the following apply to your Tailwind config:
+
+- Only using color names which don't clash with other Tailwind class names
+- Only deviating by number values from number-based Tailwind classes
+- Only using font-family classes which don't clash with default font-weight classes
+- Sticking to default Tailwind config for everything else
+
+If some of these points don't apply to you, you need to customize the configuration.
+
+### Configure Prefix
+
+You can configure the prefix directly in the `config/tailwind-class-merge.php` configuration file or by setting the environment variable:
+
+```env
+TAILWIND_MERGE_PREFIX=tw-
+```
+
+### Modify merge process
+
+If TailwindClassMerge is not able to merge your changes properly you can modify the merge process by modifying existing class groups or adding new class groups.
+
+For example, if you want to add a custom font size of "very-large":
+
+```php
+// config/tailwind-class-merge.php
+
+return [
+  'classGroups' => [
+      'font-size' => [
+          ['text' => ['very-large']]
+      ],
+  ],
+];
+```
+
+
+For a more detailed explanation of the configuration options, visit the [original package documentation](https://github.com/dcastil/tailwind-merge/blob/v1.14.0/docs/configuration.md).
 
 ## Contributing
 

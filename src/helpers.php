@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (! function_exists('tailwindClass')) {
     /**
      * @param  array<array-key, string|array<array-key, string>>  ...$args
