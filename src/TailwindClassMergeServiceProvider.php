@@ -37,7 +37,6 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/tailwind-class-merge.php' => config_path('tailwind-class-merge.php'),
             ]);
         }
-
     }
 
     protected function registerBladeDirectives(): void
