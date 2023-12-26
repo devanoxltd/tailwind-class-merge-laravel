@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## v1.1.0 (2023-12-26)
+### Added
+- Add `for` and `withoutFor` on the ComponentAttributesBag to allow merging of attributes with and without `for` attribute
+### Removed
+- Remove `tailwindClassFor` and `withoutTailwindMergeClasses` from the ComponentAttributesBag
+
 ## v1.0.0 (2023-12-09)
 ### Fixed
 - `tailwindClass` not working sometimes

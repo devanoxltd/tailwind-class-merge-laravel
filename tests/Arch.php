@@ -22,4 +22,5 @@ test('service providers')
         'config',
         'config_path',
         'resolve',
+        'str',
     ]);

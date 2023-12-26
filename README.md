@@ -138,12 +138,12 @@ This will render the following HTML:
 > **Note:** Usage of `$attributes->merge(['class' => '...'])` is currently not supported due to limitations in Laravel.
 
 #### Merge classes on multiple elements
-By default Laravel allows you to only merge classes in one place. But with `TailwindClassMerge` you can merge classes on multiple elements by using `tailwindClassFor()`:
+By default Laravel allows you to only merge classes in one place. But with `TailwindClassMerge` you can merge classes on multiple elements by using `for()`:
 
 ```blade
 // button.blade.php
-<button {{ $attributes->withoutTailwindMergeClasses()->tailwindClass('p-2 bg-gray-900 text-white') }}>
-    <svg {{ $attributes->tailwindClassFor('icon', 'h-4 text-gray-500') }} viewBox="0 0 448 512"><path d="..."/></svg>
+<button {{ $attributes->withoutFor()->tailwindClass('p-2 bg-gray-900 text-white') }}>
+    <svg {{ $attributes->for('icon')->tailwindClass('h-4 text-gray-500') }} viewBox="0 0 448 512"><path d="..."/></svg>
 
     {{ $slot }}
 </button>
@@ -168,7 +168,7 @@ This will render the following HTML:
 </button>
 ```
 
-> Note: Use `withoutTailwindMergeClasses()` on your main attributes bag, otherwise all `class:xyz` attributes will be rendered in the output.
+> Note: Use `withoutFor()` on your main attributes bag, otherwise all `class:xyz` attributes will be rendered in the output.
 
 ### Use Laravel Blade Directive
 The package registers a Blade directive which can be used to merge classes in your Blade views:

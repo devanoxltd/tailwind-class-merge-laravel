@@ -64,25 +64,37 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
             return $this;
         });
 
-        ComponentAttributeBag::macro('tailwindClassFor', function (string $for, ...$args): ComponentAttributeBag {
+        ComponentAttributeBag::macro('for', function (string $for): ComponentAttributeBag {
             /** @var ComponentAttributeBag $this */
 
-            /** @var TailwindClassMergeContract $instance */
-            $instance = resolve(TailwindClassMergeContract::class);
+            $attrBag = new ComponentAttributeBag();
+            $forAttributes = [];
 
-            $attribute = 'class' . ($for !== '' ? ':' . $for : '');
+            foreach ($this->attributes as $key => $value) {
+                if (str($key)->endsWith(':' . $for)) {
+                    $attributes = str($key)->beforeLast(':' . $for)->__toString();
+                    $forAttributes[] = $attributes;
 
-            /** @var string $classes */
-            $classes = $this->get($attribute, '');
+                    $attrBag->offsetSet($attributes, $value);
+                }
+            }
 
-            $this->offsetSet('class', $instance->merge($args, $classes));
-
-            return $this->only('class');
+            return $attrBag->only($forAttributes);
         });
 
-        ComponentAttributeBag::macro('withoutTailwindMergeClasses', fn (): ComponentAttributeBag =>
+        ComponentAttributeBag::macro('withoutFor', function (): ComponentAttributeBag {
             /** @var ComponentAttributeBag $this */
-            $this->whereDoesntStartWith('class:')); // @phpstan-ignore-line
+
+            $forAttributes = [];
+
+            foreach ($this->attributes as $key => $value) {
+                if (str($key)->contains(':')) {
+                    $forAttributes[] = $key;
+                }
+            }
+
+            return $this->except($forAttributes);
+        });
     }
 
     /**
