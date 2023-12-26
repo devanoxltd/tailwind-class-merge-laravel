@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TailwindClassMerge\Laravel;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use TailwindClassMerge\Contracts\TailwindClassMergeContract;
@@ -64,15 +65,14 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
             return $this;
         });
 
-        ComponentAttributeBag::macro('for', function (string $for): ComponentAttributeBag {
-            /** @var ComponentAttributeBag $this */
-
-            $attrBag = new ComponentAttributeBag();
+        ComponentAttributeBag::macro('forAttributes', function (string $for): ComponentAttributeBag {
+            $attrBag = new ComponentAttributeBag;
             $forAttributes = [];
 
-            foreach ($this->attributes as $key => $value) {
-                if (str($key)->endsWith(':' . $for)) {
-                    $attributes = str($key)->beforeLast(':' . $for)->__toString();
+            /** @var ComponentAttributeBag $this */
+            foreach ($this->getAttributes() as $key => $value) { // @phpstan-ignore-line
+                if (Str::of($key)->endsWith(':' . $for)) {
+                    $attributes = Str::of($key)->beforeLast(':' . $for)->__toString();
                     $forAttributes[] = $attributes;
 
                     $attrBag->offsetSet($attributes, $value);
@@ -82,17 +82,17 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
             return $attrBag->only($forAttributes);
         });
 
-        ComponentAttributeBag::macro('withoutFor', function (): ComponentAttributeBag {
-            /** @var ComponentAttributeBag $this */
-
+        ComponentAttributeBag::macro('withoutForAttributes', function (): ComponentAttributeBag {
             $forAttributes = [];
 
-            foreach ($this->attributes as $key => $value) {
-                if (str($key)->contains(':')) {
+            /** @var ComponentAttributeBag $this */
+            foreach (array_keys($this->getAttributes()) as $key) { // @phpstan-ignore-line
+                if (Str::of((string) $key)->contains(':')) {
                     $forAttributes[] = $key;
                 }
             }
 
+            /** @var ComponentAttributeBag $this */
             return $this->except($forAttributes);
         });
     }

@@ -13,6 +13,7 @@ test('service providers')
     ->toOnlyUse([
         'Illuminate\Contracts\Support\DeferrableProvider',
         'Illuminate\Support\ServiceProvider',
+        'Illuminate\Support\Str',
         'Illuminate\View\Compilers\BladeCompiler',
         'Illuminate\View\ComponentAttributeBag',
         'TailwindClassMerge',
@@ -22,5 +23,4 @@ test('service providers')
         'config',
         'config_path',
         'resolve',
-        'str',
     ]);

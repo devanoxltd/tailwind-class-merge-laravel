@@ -16,7 +16,7 @@ describe('tailwindClass', function () {
     });
 });
 
-describe('for', function () {
+describe('forAttributes', function () {
     it('provides a blade directive to merge tailwind classes on a specific element', function () {
         Blade::component('button', Button::class);
 
@@ -34,7 +34,7 @@ describe('for', function () {
     });
 });
 
-describe('withoutFor', function () {
+describe('withoutForAttributes', function () {
     it('removes all class attributes that were merged with tailwindClass', function () {
         Blade::component('button', Button::class);
 

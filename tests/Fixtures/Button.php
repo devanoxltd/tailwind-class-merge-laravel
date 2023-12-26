@@ -11,8 +11,8 @@ class Button extends Component
     public function render()
     {
         return <<<'blade'
-            <button type="button" {{ $attributes->withoutFor()->merge(['class' => 'p-4']) }}>
-                <svg {{ $attributes->for('icon')->tailwindClass('h-5 w-5 text-gray-500') }}></svg>
+            <button type="button" {{ $attributes->withoutForAttributes()->merge(['class' => 'p-4']) }}>
+                <svg {{ $attributes->forAttributes('icon')->tailwindClass('h-5 w-5 text-gray-500') }}></svg>
             </button>
         blade;
     }

@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 (2023-12-26)
 ### Added
-- Add `for` and `withoutFor` on the ComponentAttributesBag to allow merging of attributes with and without `for` attribute
+- Add `forAttributes` and `withoutForAttributes` on the ComponentAttributesBag to allow merging of attributes with and without `for` attribute
 ### Removed
 - Remove `tailwindClassFor` and `withoutTailwindMergeClasses` from the ComponentAttributesBag
 
