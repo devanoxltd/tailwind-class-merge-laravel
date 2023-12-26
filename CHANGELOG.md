@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Remove `tailwindClassFor` and `withoutTailwindMergeClasses` from the ComponentAttributesBag
 
-## v1.0.0 (2023-12-09)
+## v1.0.1 (2023-12-09)
 ### Fixed
 - `tailwindClass` not working sometimes
 
