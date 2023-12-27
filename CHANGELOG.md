@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.1.1 (2023-12-27)
+### Changed
+- Update forAttributes now you can use attributes like `icon:class`
+
 ## v1.1.0 (2023-12-26)
 ### Added
 - Add `forAttributes` and `withoutForAttributes` on the ComponentAttributesBag to allow merging of attributes with and without `for` attribute

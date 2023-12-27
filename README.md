@@ -153,7 +153,7 @@ You can now specify additional classes for the button and the svg icon:
 
 ```blade
 // your-view.blade.php
-<x-button class="bg-blue-900" class:icon="text-blue-500">
+<x-button class="bg-blue-900" icon:class="text-blue-500">
   Click Me
 </x-button>
 ```
@@ -168,7 +168,7 @@ This will render the following HTML:
 </button>
 ```
 
-> Note: Use `withoutForAttributes()` on your main attributes bag, otherwise all `class:xyz` attributes will be rendered in the output.
+> Note: Use `withoutForAttributes()` on your main attributes bag, otherwise all `xyz:class` attributes will be rendered in the output.
 
 ### Use Laravel Blade Directive
 The package registers a Blade directive which can be used to merge classes in your Blade views:

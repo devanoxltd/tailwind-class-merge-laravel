@@ -71,8 +71,8 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
 
             /** @var ComponentAttributeBag $this */
             foreach ($this->getAttributes() as $key => $value) { // @phpstan-ignore-line
-                if (Str::of($key)->endsWith(':' . $for)) {
-                    $attributes = Str::of($key)->beforeLast(':' . $for)->__toString();
+                if (Str::of($key)->startsWith($for . ':')) {
+                    $attributes = Str::of($key)->after($for . ':')->__toString();
                     $forAttributes[] = $attributes;
 
                     $attrBag->offsetSet($attributes, $value);

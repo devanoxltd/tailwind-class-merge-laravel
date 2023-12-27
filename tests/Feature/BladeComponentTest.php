@@ -20,7 +20,7 @@ describe('forAttributes', function () {
     it('provides a blade directive to merge tailwind classes on a specific element', function () {
         Blade::component('button', Button::class);
 
-        expect(Blade::render('<x-button class:icon="text-blue-500" />'))
+        expect(Blade::render('<x-button icon:class="text-blue-500" />'))
             ->toContain('class="h-5 w-5 text-blue-500"')
             ->toMatchSnapshot();
     });
@@ -38,9 +38,9 @@ describe('withoutForAttributes', function () {
     it('removes all class attributes that were merged with tailwindClass', function () {
         Blade::component('button', Button::class);
 
-        expect(Blade::render('<x-button class="bg-red-500" class:icon="text-blue-500" />'))
+        expect(Blade::render('<x-button class="bg-red-500" icon:class="text-blue-500" />'))
             ->toContain('bg-red-500')
-            ->not->toContain('class:icon')
+            ->not->toContain('icon:class')
             ->toMatchSnapshot();
     });
 });
