@@ -161,7 +161,7 @@ You can now specify additional classes for the button and the svg icon:
 This will render the following HTML:
 
 ```html
-<button class="p-2 blue text-white">
+<button class="p-2 bg-blue-900 text-white">
   <svg class="h-4 text-blue-500" viewBox="0 0 448 512"><path d="..."/></svg>
 
   Click Me
