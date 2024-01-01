@@ -87,7 +87,10 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
 
             /** @var ComponentAttributeBag $this */
             foreach (array_keys($this->getAttributes()) as $key) { // @phpstan-ignore-line
-                if (Str::of((string) $key)->contains(':')) {
+                // check if the key contains a colon between words e.g. 'icon:class', 'icon:id', title:class' etc.
+                $isForAttribute = (! empty(Str::match('/\w+:\w+/', (string) $key)));
+
+                if ($isForAttribute) {
                     $forAttributes[] = $key;
                 }
             }
