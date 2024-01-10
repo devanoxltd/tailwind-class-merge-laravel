@@ -9,6 +9,10 @@
             "email": "contact@mrchetan.com"
         }
     ],
+    "support": {
+        "issues": "https:://github.com/devanoxltd/tailwind-class-merge-laravel/issues",
+        "source": "https:://github.com/devanoxltd/tailwind-class-merge-laravel"
+    },
     "require": {
         "php": "^8.3.0",
         "guzzlehttp/guzzle": "^7.8.1",
