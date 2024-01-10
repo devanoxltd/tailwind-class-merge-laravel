@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ccfb17da93366170b43e87b7d906260",
+    "content-hash": "194011b9f16461b18b22f3d86461dc98",
     "packages": [
         {
             "name": "brick/math",
@@ -131,17 +131,17 @@
             "time": "2023-12-11T17:09:12+00:00"
         },
         {
-            "name": "devanox/tailwind-class-merge-php",
-            "version": "v1.1.1",
+            "name": "devanoxltd/tailwind-class-merge-php",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devanoxltd/tailwind-class-merge-php.git",
-                "reference": "cc21873a4c42419d25ad7ab71db15f60ac89b5ef"
+                "reference": "458b5fa8d98f681d419905146288aa4737c61b85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devanoxltd/tailwind-class-merge-php/zipball/cc21873a4c42419d25ad7ab71db15f60ac89b5ef",
-                "reference": "cc21873a4c42419d25ad7ab71db15f60ac89b5ef",
+                "url": "https://api.github.com/repos/devanoxltd/tailwind-class-merge-php/zipball/458b5fa8d98f681d419905146288aa4737c61b85",
+                "reference": "458b5fa8d98f681d419905146288aa4737c61b85",
                 "shasum": ""
             },
             "require": {
@@ -192,11 +192,11 @@
             },
             "funding": [
                 {
-                    "url": "https://github.com/devanoxLtd",
+                    "url": "https://github.com/devanoxltd",
                     "type": "github"
                 }
             ],
-            "time": "2024-01-10T15:41:54+00:00"
+            "time": "2024-01-10T15:55:26+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

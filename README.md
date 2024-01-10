@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/devanoxLtd/tailwind-class-merge-laravel/main/art/example.png" width="600" alt="TailwindClassMerge for Laravel">
+    <img src="https://raw.githubusercontent.com/devanoxltd/tailwind-class-merge-laravel/main/art/example.png" width="600" alt="TailwindClassMerge for Laravel">
     <p align="center">
-        <a href="https://github.com/devanoxLtd/tailwind-class-merge-laravel/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/devanoxLtd/tailwind-class-merge-laravel/tests.yml?branch=main&label=tests&style=round-square"></a>
-        <a href="https://packagist.org/packages/devanox/tailwind-class-merge-laravel"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/devanox/tailwind-class-merge-laravel"></a>
-        <a href="https://packagist.org/packages/devanox/tailwind-class-merge-laravel"><img alt="Latest Version" src="https://img.shields.io/packagist/v/devanox/tailwind-class-merge-laravel"></a>
-        <a href="https://packagist.org/packages/devanox/tailwind-class-merge-laravel"><img alt="License" src="https://img.shields.io/github/license/devanoxLtd/tailwind-class-merge-laravel"></a>
+        <a href="https://github.com/devanoxltd/tailwind-class-merge-laravel/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/devanoxltd/tailwind-class-merge-laravel/tests.yml?branch=main&label=tests&style=round-square"></a>
+        <a href="https://packagist.org/packages/devanoxltd/tailwind-class-merge-laravel"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/devanoxltd/tailwind-class-merge-laravel"></a>
+        <a href="https://packagist.org/packages/devanoxltd/tailwind-class-merge-laravel"><img alt="Latest Version" src="https://img.shields.io/packagist/v/devanoxltd/tailwind-class-merge-laravel"></a>
+        <a href="https://packagist.org/packages/devanoxltd/tailwind-class-merge-laravel"><img alt="License" src="https://img.shields.io/github/license/devanoxltd/tailwind-class-merge-laravel"></a>
     </p>
 </p>
 
@@ -17,9 +17,9 @@ A Laravel / PHP port of [tailwind-merge](https://github.com/dcastil/tailwind-mer
 Supports Tailwind v3.0 up to v3.3.
 
 If you find this package helpful, please consider sponsoring the maintainer:
-- Devanox Private Limited: **[github.com/sponsors/devanoxLtd](https://github.com/sponsors/devanoxLtd)**
+- Devanox Private Limited: **[github.com/sponsors/devanoxltd](https://github.com/sponsors/devanoxltd)**
 
-> If you are **NOT** using Laravel, you can use the [TailwindClassMerge for PHP](https://github.com/devanoxLtd/tailwind-class-merge-php) directly.
+> If you are **NOT** using Laravel, you can use the [TailwindClassMerge for PHP](https://github.com/devanoxltd/tailwind-class-merge-php) directly.
 
 ## Table of Contents
 - [Get Started](#get-started)
@@ -37,7 +37,7 @@ If you find this package helpful, please consider sponsoring the maintainer:
 First, install `TailwindClassMerge for Laravel` via the [Composer](https://getcomposer.org/) package manager:
 
 ```bash
-composer require devanox/tailwind-class-merge-laravel
+composer require devanoxltd/tailwind-class-merge-laravel
 ```
 
 Optionally, publish the configuration file:
@@ -111,7 +111,7 @@ TailwindClassMerge::merge(['h-10', 'h-20'], 'h-30', ['h-40']); // h-40
 
 ## Usage
 
-For in depth documentation and general PHP examples, take a look at the [devanoxLtd/tailwind-class-merge-php](https://github.com/devanoxLtd/tailwind-class-merge-php) repository.
+For in depth documentation and general PHP examples, take a look at the [devanoxltd/tailwind-class-merge-php](https://github.com/devanoxltd/tailwind-class-merge-php) repository.
 
 ### Use in Laravel Blade Components
 
@@ -214,7 +214,7 @@ tailwindClass('w-10 h-10 rounded-full bg-red-500 bg-blue-500'); // w-10 h-10 rou
 ```
 
 ### More usage examples
-Take a look at the [TailwindClassMerge for PHP](https://github.com/devanoxLtd/tailwind-class-merge-php) repository.
+Take a look at the [TailwindClassMerge for PHP](https://github.com/devanoxltd/tailwind-class-merge-php) repository.
 
 ## Configuration
 
