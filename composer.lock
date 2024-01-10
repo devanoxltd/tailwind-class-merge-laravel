@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48882153d1037219118dee0352f77917",
+    "content-hash": "1ccfb17da93366170b43e87b7d906260",
     "packages": [
         {
             "name": "brick/math",
@@ -132,16 +132,16 @@
         },
         {
             "name": "devanox/tailwind-class-merge-php",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devanoxltd/tailwind-class-merge-php.git",
-                "reference": "bf2adbf2f784b8c2ee8678a6e472493a3d796700"
+                "reference": "cc21873a4c42419d25ad7ab71db15f60ac89b5ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devanoxltd/tailwind-class-merge-php/zipball/bf2adbf2f784b8c2ee8678a6e472493a3d796700",
-                "reference": "bf2adbf2f784b8c2ee8678a6e472493a3d796700",
+                "url": "https://api.github.com/repos/devanoxltd/tailwind-class-merge-php/zipball/cc21873a4c42419d25ad7ab71db15f60ac89b5ef",
+                "reference": "cc21873a4c42419d25ad7ab71db15f60ac89b5ef",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             ],
             "support": {
                 "issues": "https://github.com/devanoxltd/tailwind-class-merge-php/issues",
-                "source": "https://github.com/devanoxltd/tailwind-class-merge-php/tree/v1.1.0"
+                "source": "https://github.com/devanoxltd/tailwind-class-merge-php"
             },
             "funding": [
                 {
@@ -196,7 +196,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-10T15:27:35+00:00"
+            "time": "2024-01-10T15:41:54+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
