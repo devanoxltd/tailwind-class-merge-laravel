@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.2, 8.3]
-        laravel: [10.*]
+        laravel: [11.*]
         dependency-version: [prefer-lowest, prefer-stable]
 
     name: Tests P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
