@@ -16,19 +16,19 @@
     "require": {
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.8.1",
-        "laravel/framework": "v11.1.1",
-        "devanoxltd/tailwind-class-merge-php": "v2.0.0"
+        "laravel/framework": "^v11.2.0",
+        "devanoxltd/tailwind-class-merge-php": "^v2.0.1"
     },
     "require-dev": {
-        "laravel/pint": "v1.15.0",
-        "orchestra/testbench": "v9.0.3",
-        "pestphp/pest": "v2.34.6",
-        "pestphp/pest-plugin-arch": "v2.7.0",
+        "laravel/pint": "^v1.15.1",
+        "orchestra/testbench": "^v9.0.3",
+        "pestphp/pest": "^v2.34.6",
+        "pestphp/pest-plugin-arch": "^v2.7.0",
         "pestphp/pest-plugin-mock": "^v2.0",
-        "pestphp/pest-plugin-type-coverage": "v2.8.1",
-        "phpstan/phpstan": "^1.10.65",
+        "pestphp/pest-plugin-type-coverage": "^v2.8.1",
+        "phpstan/phpstan": "^1.10.66",
         "rector/rector": "^1.0.3",
-        "symfony/var-dumper": "v7.0.4"
+        "symfony/var-dumper": "^v7.0.6"
     },
     "autoload": {
         "psr-4": {
