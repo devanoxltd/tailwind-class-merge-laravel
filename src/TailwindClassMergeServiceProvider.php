@@ -66,12 +66,20 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
         });
 
         ComponentAttributeBag::macro('forAttributes', function (string $for): ComponentAttributeBag {
+            $prefix = (string) config('tailwind-class-merge.attribute_prefix', 'component:'); // @phpstan-ignore-line
+            $prefix = Str::finish($prefix, ':');
+            $prefixFor = $for . ':';
+
+            if (! Str::of($for)->startsWith($prefix)) {
+                $prefixFor = Str::finish($prefix . $for, ':');
+            }
+
             $attrBag = new ComponentAttributeBag;
             $forAttributes = [];
 
             /** @var ComponentAttributeBag $this */
             foreach ($this->getAttributes() as $key => $value) { // @phpstan-ignore-line
-                if (Str::of($key)->contains($for . ':')) {
+                if (Str::of($key)->startsWith($prefixFor)) {
                     $attributes = Str::of($key)->after($for . ':')->__toString();
                     $forAttributes[] = $attributes;
 
