@@ -66,6 +66,13 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
         });
 
         ComponentAttributeBag::macro('forAttributes', function (string $for): ComponentAttributeBag {
+            $prefix = (string) config('tailwind-class-merge.attribute_prefix', 'component:'); // @phpstan-ignore-line
+            $prefix = Str::finish($prefix, ':');
+
+            if (! Str::of($for)->startsWith($prefix)) {
+                $for = $prefix . $for;
+            }
+
             $attrBag = new ComponentAttributeBag;
             $forAttributes = [];
 
@@ -84,11 +91,15 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
 
         ComponentAttributeBag::macro('withoutForAttributes', function (): ComponentAttributeBag {
             $forAttributes = [];
+            $prefix = (string) config('tailwind-class-merge.attribute_prefix', 'component:'); // @phpstan-ignore-line
+            $prefix = Str::finish($prefix, ':');
 
             /** @var ComponentAttributeBag $this */
             foreach (array_keys($this->getAttributes()) as $key) { // @phpstan-ignore-line
-                // check if the key contains a colon between words e.g. 'icon:class', 'icon:id', title:class' etc.
-                $isForAttribute = (Str::match('/\w+:\w+/', (string) $key) !== '');
+                // check if the key contains a colon between words e.g. 'for-icon:class', 'for-icon:id', for-title:class' etc.
+                $regex = '/^' . $prefix . '\w+:\w+$/';
+
+                $isForAttribute = (Str::match($regex, (string) $key) !== '');
 
                 if ($isForAttribute) {
                     $forAttributes[] = $key;
