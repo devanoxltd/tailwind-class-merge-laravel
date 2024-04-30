@@ -89,13 +89,9 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
 
             /** @var ComponentAttributeBag $this */
             foreach (array_keys($this->getAttributes()) as $key) { // @phpstan-ignore-line
-                if (Str::of($key)->startsWith($prefix)) {
+                if (Str::of((string) $key)->startsWith($prefix)) {
                     $forAttributes[] = $key;
                 }
-            }
-
-            if (empty($forAttributes)) {
-                return $this;
             }
 
             /** @var ComponentAttributeBag $this */
