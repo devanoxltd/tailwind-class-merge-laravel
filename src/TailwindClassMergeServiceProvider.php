@@ -60,6 +60,7 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
     {
         ComponentAttributeBag::macro('tailwindClass', function (...$args): ComponentAttributeBag {
             /** @var ComponentAttributeBag $this */
+            // @phpstan-ignore-next-line
             $this->offsetSet('class', resolve(TailwindClassMergeContract::class)->merge($args, ($this->get('class', ''))));
 
             return $this;

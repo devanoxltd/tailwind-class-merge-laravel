@@ -11,4 +11,3 @@ phpstan-baseline.neon   export-ignore
 phpunit.xml.dist        export-ignore
 pint.json               export-ignore
 README.md               export-ignore
-rector.php              export-ignore
