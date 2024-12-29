@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TailwindClassMerge\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use TailwindClassMerge\Contracts\TailwindClassMergeContract;
@@ -64,47 +63,6 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
             $this->offsetSet('class', resolve(TailwindClassMergeContract::class)->merge($args, ($this->get('class', ''))));
 
             return $this;
-        });
-
-        ComponentAttributeBag::macro('forAttributes', function (string $for): ComponentAttributeBag {
-            $prefix = (string) config('tailwind-class-merge.attribute_prefix', 'component:'); // @phpstan-ignore-line
-            $prefix = Str::finish($prefix, ':');
-            $prefixFor = $for . ':';
-
-            if (! Str::of($for)->startsWith($prefix)) {
-                $prefixFor = Str::finish($prefix . $for, ':');
-            }
-
-            $attrBag = new ComponentAttributeBag;
-            $forAttributes = [];
-
-            /** @var ComponentAttributeBag $this */
-            foreach ($this->getAttributes() as $key => $value) { // @phpstan-ignore-line
-                if (Str::of($key)->startsWith($prefixFor)) {
-                    $attributes = Str::of($key)->after($for . ':')->__toString();
-                    $forAttributes[] = $attributes;
-
-                    $attrBag->offsetSet($attributes, $value);
-                }
-            }
-
-            return $attrBag->only($forAttributes);
-        });
-
-        ComponentAttributeBag::macro('withoutForAttributes', function (): ComponentAttributeBag {
-            $forAttributes = [];
-            $prefix = (string) config('tailwind-class-merge.attribute_prefix', 'component:'); // @phpstan-ignore-line
-            $prefix = Str::finish($prefix, ':');
-
-            /** @var ComponentAttributeBag $this */
-            foreach (array_keys($this->getAttributes()) as $key) { // @phpstan-ignore-line
-                if (Str::of((string) $key)->startsWith($prefix)) {
-                    $forAttributes[] = $key;
-                }
-            }
-
-            /** @var ComponentAttributeBag $this */
-            return $this->except($forAttributes);
         });
     }
 

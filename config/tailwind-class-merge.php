@@ -43,5 +43,4 @@ return [
     */
 
     'blade_directive' => 'tailwindClass',
-    'attribute_prefix' => 'component:',
 ];

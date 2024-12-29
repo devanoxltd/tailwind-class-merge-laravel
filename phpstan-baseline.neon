@@ -10,8 +10,3 @@ parameters:
 			message: "#^Parameter \\#1 \\$name of method Illuminate\\\\View\\\\Compilers\\\\BladeCompiler\\:\\:directive\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/TailwindClassMergeServiceProvider.php
-
-		-
-			message: "#^Cannot call method merge\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/helpers.php

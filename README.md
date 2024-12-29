@@ -137,49 +137,6 @@ This will render the following HTML:
 
 > **Note:** Usage of `$attributes->merge(['class' => '...'])` is currently not supported due to limitations in Laravel.
 
-#### Merge classes on multiple elements
-By default Laravel allows you to only merge classes in one place. But with `TailwindClassMerge` you can merge classes on multiple elements by using `forAttributes()`:
-
-```blade
-// button.blade.php
-<button {{ $attributes->withoutForAttributes()->tailwindClass('p-2 bg-gray-900 text-white') }}>
-    <svg {{ $attributes->forAttributes('icon')->tailwindClass('h-4 text-gray-500') }} viewBox="0 0 448 512"><path d="..."/></svg>
-
-    {{ $slot }}
-</button>
-```
-
-You can now specify additional classes for the button and the svg icon:
-
-```blade
-// your-view.blade.php
-<x-button class="bg-blue-900" component:icon:class="text-blue-500">
-  Click Me
-</x-button>
-```
-
-This will render the following HTML:
-
-```html
-<button class="p-2 bg-blue-900 text-white">
-  <svg class="h-4 text-blue-500" viewBox="0 0 448 512"><path d="..."/></svg>
-
-  Click Me
-</button>
-```
-
-> Note: Use `withoutForAttributes()` on your main attributes bag, otherwise all `component:xyz:class` attributes will be rendered in the output.
-
-
-If you want to rename the blade component prefix, you can do so in the `config/tailwind-class-merge.php` configuration file:
-
-```php
-// config/tailwind-class-merge.php
-return [
-    'attribute_prefix' => 'component:',
-];
-```
-
 ### Use Laravel Blade Directive
 The package registers a Blade directive which can be used to merge classes in your Blade views:
 

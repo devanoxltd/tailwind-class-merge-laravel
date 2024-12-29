@@ -8,6 +8,6 @@ if (! function_exists('tailwindClass')) {
      */
     function tailwindClass(...$args): string
     {
-        return app('tailwind-class-merge')->merge(...$args);
+        return app('tailwind-class-merge')->merge(...$args); // @phpstan-ignore-line
     }
 }

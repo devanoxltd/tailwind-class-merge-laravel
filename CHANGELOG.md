@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v4.0.0 (2024-12-31)
+### Updated
+-   Update package dependencies
+### Removed
+-   Remove `forAttributes` and `withoutForAttributes` Blade component attribute method now use Blade slot instead
+
 ## v3.1.0 (2024-06-11)
 ### Updated
 -   Update package dependencies
