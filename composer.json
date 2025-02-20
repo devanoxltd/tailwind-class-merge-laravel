@@ -15,15 +15,15 @@
     },
     "require": {
         "php": "^8.2.0",
-        "laravel/framework": "^v11.36",
-        "devanoxltd/tailwind-class-merge-php": "^v2.3"
+        "laravel/framework": "^v12.0",
+        "devanoxltd/tailwind-class-merge-php": "^v3.0"
     },
     "require-dev": {
-        "laravel/pint": "^v1.18",
-        "orchestra/testbench": "^v9.9",
+        "laravel/pint": "^v1.21",
+        "orchestra/testbench": "^v10.0",
         "pestphp/pest": "^v3.7",
         "pestphp/pest-plugin-arch": "^3.0",
-        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan": "^2.1",
         "symfony/var-dumper": "^v7.2"
     },
     "autoload": {
