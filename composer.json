@@ -1,7 +1,13 @@
 {
     "name": "devanoxltd/tailwind-class-merge-laravel",
     "description": "TailwindClassMerge for Laravel merges multiple Tailwind CSS classes by automatically resolving conflicts between them",
-    "keywords": ["laravel", "php", "tailwindcss", "merge", "classes"],
+    "keywords": [
+        "laravel",
+        "php",
+        "tailwindcss",
+        "merge",
+        "classes"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +21,7 @@
     },
     "require": {
         "php": "^8.2.0",
-        "laravel/framework": "^v12.0",
+        "laravel/framework": "^v12.1",
         "devanoxltd/tailwind-class-merge-php": "^v3.0"
     },
     "require-dev": {
