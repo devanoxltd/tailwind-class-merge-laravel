@@ -20,17 +20,17 @@
         "source": "https://github.com/devanoxltd/tailwind-class-merge-laravel"
     },
     "require": {
-        "php": "^8.2.0",
-        "laravel/framework": "^v12.1",
+        "php": "^8.4.0",
+        "laravel/framework": "^v12.12",
         "devanoxltd/tailwind-class-merge-php": "^v3.0"
     },
     "require-dev": {
-        "laravel/pint": "^v1.21",
-        "orchestra/testbench": "^v10.0",
-        "pestphp/pest": "^v3.7",
-        "pestphp/pest-plugin-arch": "^3.0",
-        "phpstan/phpstan": "^2.1",
-        "symfony/var-dumper": "^v7.2"
+        "laravel/pint": "^v1.22",
+        "orchestra/testbench": "v10.2.2",
+        "pestphp/pest": "v3.8.2",
+        "pestphp/pest-plugin-arch": "^v3.1.1",
+        "phpstan/phpstan": "^2.1.14",
+        "symfony/var-dumper": "v7.2.6"
     },
     "autoload": {
         "psr-4": {
