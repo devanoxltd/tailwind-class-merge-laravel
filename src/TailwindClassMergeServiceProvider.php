@@ -17,10 +17,13 @@ class TailwindClassMergeServiceProvider extends ServiceProvider
         $this->app
             ->singleton(
                 TailwindClassMergeContract::class,
-                static fn (): TailwindClassMerge => TailwindClassMerge::factory()
-                    ->withConfiguration(config('tailwind-class-merge', []))
-                    ->withCache(app('cache')->store()) // @phpstan-ignore-line
-                    ->make()
+                static fn (): TailwindClassMerge => tap(TailwindClassMerge::factory()->withConfiguration(config('tailwind-class-merge', [])), function ($factory) {
+                    $cache = config('tailwind-class-merge.cache', null);
+
+                    if ($cache !== false) {
+                        $factory->withCache(app('cache')->store($cache)); // @phpstan-ignore-line
+                    }
+                })->make()
             );
 
         $this->app->alias(TailwindClassMergeContract::class, 'tailwind-class-merge');
