@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+## v5.7.0 (2025-11-26)
+### Updated
+-   Update package dependencies
+
+## v5.6.0 (2025-07-31)
+### Updated
+-   Update package dependencies
+
+## v5.5.0 (2025-06-07)
+### Updated
+-   Update package dependencies
+
+## v5.4.0 (2025-05-21)
+### Updated
+-   Update package dependencies
 
 ## v5.3.0 (2025-05-15)
 ### Added

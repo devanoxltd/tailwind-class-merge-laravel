@@ -21,14 +21,14 @@
     },
     "require": {
         "php": "^8.4.0",
-        "laravel/framework": "^v12.21",
+        "laravel/framework": "^v12.40",
         "devanoxltd/tailwind-class-merge-php": "^v3.2"
     },
     "require-dev": {
-        "laravel/pint": "^v1.24",
-        "orchestra/testbench": "^v10.4",
-        "pestphp/pest": "^v3.8",
-        "pestphp/pest-plugin-arch": "^v3.1",
+        "laravel/pint": "^v1.26",
+        "orchestra/testbench": "^v10.8",
+        "pestphp/pest": "^4.1",
+        "pestphp/pest-plugin-arch": "^4.0",
         "phpstan/phpstan": "^2.1",
         "symfony/var-dumper": "^v7.3"
     },
