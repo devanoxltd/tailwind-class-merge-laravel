@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## v6.0.0 (2026-03-18)
+### Added
+-   Add support for Laravel 13
+
+### Updated
+-   Update `devanoxltd/tailwind-class-merge-php` to `^v4.0`
+-   Update development dependencies (`orchestra/testbench` v11, `laravel/pint` v1.29, `pestphp/pest` v4.4.2, `phpstan/phpstan` v2.1.42, `symfony/var-dumper` 8.0.6)
+-   Improve internal type hint and test imports for cleaner code
+
+### Removed
+-   Remove support for Laravel 12
+
 ## v5.8.0 (2026-02-04)
 ### Updated
 -   Update package dependencies
