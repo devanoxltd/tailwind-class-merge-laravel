@@ -16,7 +16,7 @@ it('resolves resources', function () {
 
     (new TailwindClassMergeServiceProvider($app))->register();
 
-    TailwindMerge::setFacadeApplication($app);
+    TailwindClassMerge::setFacadeApplication($app);
 
     expect(TailwindClassMerge::merge('h-4 h-6'))
         ->toBe('h-6');
