@@ -64,7 +64,6 @@ class TailwindClassMergeServiceProvider extends BaseServiceProvider
         /** @param array<int, string|array<array-key, string>> ...$args */
         ComponentAttributeBag::macro('tailwindClass', function (...$args): ComponentAttributeBag {
             /** @var ComponentAttributeBag $this */
-
             $existingClass = $this->get('class', '');
 
             if (! is_string($existingClass)) {
