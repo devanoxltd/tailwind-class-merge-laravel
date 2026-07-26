@@ -24,15 +24,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Docs
 - Add documentation for configuration
-- Add documentation for `twMergeFor()`
+- Add documentation for `forAttributes()`
 
 ## v0.2.1 (2023-08-10)
 ### Fixed
-- Revert the behaviour of `twMerge`
+- Revert the behaviour of `tailwindClass`
 
 ## v0.2.0 (2023-08-09)
 ### Added
-- Add `twMergeFor` and `withoutTwMergeClasses` on the ComponentAttributesBag
+- Add `forAttributes` and `withoutForAttributes` on the ComponentAttributesBag
 
 ## v0.1.0 (2023-06-16)
 ### Fixed

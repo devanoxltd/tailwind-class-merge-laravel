@@ -3,23 +3,24 @@
 declare(strict_types=1);
 
 test('facades')
-    ->expect('TailwindMerge\Laravel\Facades\TailwindMerge')
+    ->expect('TailwindClassMerge\Laravel\Facades\TailwindClassMerge')
     ->toOnlyUse([
         'Illuminate\Support\Facades\Facade',
     ]);
 
 test('service providers')
-    ->expect('TailwindMerge\Laravel\TailwindMergeServiceProvider')
+    ->expect('TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider')
     ->toOnlyUse([
         'Illuminate\Contracts\Support\DeferrableProvider',
         'Illuminate\Support\ServiceProvider',
         'Illuminate\View\Compilers\BladeCompiler',
         'Illuminate\View\ComponentAttributeBag',
-        'TailwindMerge',
+        'TailwindClassMerge',
 
         // helpers...
         'app',
         'config',
         'config_path',
         'resolve',
+        'tap',
     ]);

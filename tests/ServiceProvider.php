@@ -3,59 +3,59 @@
 declare(strict_types=1);
 
 use Illuminate\Config\Repository;
-use TailwindMerge\Contracts\TailwindMergeContract;
-use TailwindMerge\Laravel\TailwindMergeServiceProvider;
-use TailwindMerge\TailwindMerge;
+use TailwindClassMerge\Contracts\TailwindClassMergeContract;
+use TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider;
+use TailwindClassMerge\TailwindClassMerge;
 
 it('binds the tailwind merge on the container', function () {
     $app = app();
 
     $app->bind('config', fn () => new Repository([
-        'tailwind-merge' => [
+        'tailwind-class-merge' => [
         ],
     ]));
 
-    (new TailwindMergeServiceProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
-    expect($app->get(TailwindMerge::class))->toBeInstanceOf(TailwindMerge::class);
+    expect($app->get(TailwindClassMerge::class))->toBeInstanceOf(TailwindClassMerge::class);
 });
 
 it('binds the client on the container as singleton', function () {
     $app = app();
 
     $app->bind('config', fn () => new Repository([
-        'tailwind-merge' => [
+        'tailwind-class-merge' => [
         ],
     ]));
 
-    (new TailwindMergeServiceProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
-    $twMerge = $app->get(TailwindMerge::class);
+    $tailwindClass = $app->get(TailwindClassMerge::class);
 
-    expect($app->get(TailwindMerge::class))->toBe($twMerge);
+    expect($app->get(TailwindClassMerge::class))->toBe($tailwindClass);
 });
 
 it('uses the prefix from the configuration', function () {
     $app = app();
 
     $app->bind('config', fn () => new Repository([
-        'tailwind-merge' => [
+        'tailwind-class-merge' => [
             'prefix' => 'tw-',
         ],
     ]));
 
-    (new TailwindMergeServiceProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
-    $twMerge = $app->get(TailwindMerge::class);
+    $tailwindClass = $app->get(TailwindClassMerge::class);
 
-    expect($twMerge->merge('tw-h-4 tw-h-6'))->toBe('tw-h-6');
+    expect($tailwindClass->merge('tw-h-4 tw-h-6'))->toBe('tw-h-6');
 });
 
 it('uses the class groups from the configuration', function () {
     $app = app();
 
     $app->bind('config', fn () => new Repository([
-        'tailwind-merge' => [
+        'tailwind-class-merge' => [
             'classGroups' => [
                 'font-size' => [
                     ['text' => ['very-large']],
@@ -64,21 +64,21 @@ it('uses the class groups from the configuration', function () {
         ],
     ]));
 
-    (new TailwindMergeServiceProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
-    $twMerge = $app->get(TailwindMerge::class);
+    $tailwindClass = $app->get(TailwindClassMerge::class);
 
-    expect($twMerge->merge('text-xl text-very-large'))->toBe('text-very-large');
+    expect($tailwindClass->merge('text-xl text-very-large'))->toBe('text-very-large');
 });
 
 it('provides', function () {
     $app = app();
 
-    $provides = (new TailwindMergeServiceProvider($app))->provides();
+    $provides = (new TailwindClassMergeServiceProvider($app))->provides();
 
     expect($provides)->toBe([
-        TailwindMerge::class,
-        TailwindMergeContract::class,
-        'tailwind-merge',
+        TailwindClassMerge::class,
+        TailwindClassMergeContract::class,
+        'tailwind-class-merge',
     ]);
 });

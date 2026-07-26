@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-if (!function_exists('twMerge')) {
+if (! function_exists('tailwindClass')) {
     /**
      * @param  array<array-key, string|array<array-key, string>>  ...$args
      */
-    function twMerge(...$args): string
+    function tailwindClass(...$args): string
     {
-        return app('tailwind-merge')->merge(...$args);
+        return app('tailwind-class-merge')->merge(...$args);
     }
 }

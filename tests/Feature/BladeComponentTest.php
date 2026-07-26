@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Tests\Fixtures\Button;
 use Tests\Fixtures\Circle;
 
-describe('twMerge', function () {
+describe('tailwindClass', function () {
     it('provides a blade directive to merge tailwind classes', function () {
         Blade::component('circle', Circle::class);
 
@@ -16,7 +16,7 @@ describe('twMerge', function () {
     });
 });
 
-describe('twMergeFor', function () {
+describe('forAttributes', function () {
     it('provides a blade directive to merge tailwind classes on a specific element', function () {
         Blade::component('button', Button::class);
 
@@ -34,8 +34,8 @@ describe('twMergeFor', function () {
     });
 });
 
-describe('withoutTwMergeClasses', function () {
-    it('removes all class attributes that were merged with twMerge', function () {
+describe('withoutForAttributes', function () {
+    it('removes all class attributes that were merged with tailwindClass', function () {
         Blade::component('button', Button::class);
 
         expect(Blade::render('<x-button class="bg-red-500" class:icon="text-blue-500" />'))

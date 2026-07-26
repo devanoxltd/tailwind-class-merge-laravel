@@ -11,7 +11,7 @@ class Circle extends Component
     public function render()
     {
         return <<<'blade'
-            <div {{ $attributes->twMerge('w-10 h-10 rounded-full bg-red-500') }}></div>
+            <div {{ $attributes->tailwindClass('w-10 h-10 rounded-full bg-red-500') }}></div>
         blade;
     }
 }

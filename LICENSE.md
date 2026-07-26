@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) Sandro Gehri <sandrogehri@gmail.com>
+Copyright (c) Mr Chetan <contact@mrchetan.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

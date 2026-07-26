@@ -18,7 +18,7 @@ return [
     | Class groups
     |--------------------------------------------------------------------------
     |
-    | If TailwindMerge is not able to merge your changes properly you can
+    | If TailwindClassMerge is not able to merge your changes properly you can
     | modify the merge process by modifying existing class groups or adding
     | new class groups.
     |
@@ -41,5 +41,5 @@ return [
     | Set it to null to entirely disable the blade directive.
     */
 
-    'blade_directive' => 'twMerge',
+    'blade_directive' => 'tailwindClass',
 ];

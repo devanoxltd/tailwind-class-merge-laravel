@@ -1,28 +1,28 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Parameter \#1 \$configuration of method TailwindMerge\\Factory\:\:withConfiguration\(\) expects array\<string, mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$configuration of method TailwindClassMerge\\Factory\:\:withConfiguration\(\) expects array\<string, mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/TailwindMergeServiceProvider.php
+			path: src/TailwindClassMergeServiceProvider.php
 
 		-
 			message: '#^Parameter \#1 \$name of method Illuminate\\View\\Compilers\\BladeCompiler\:\:directive\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/TailwindMergeServiceProvider.php
+			path: src/TailwindClassMergeServiceProvider.php
 
 		-
-			message: '#^Parameter \#1 \.\.\.\$args of method TailwindMerge\\Contracts\\TailwindMergeContract\:\:merge\(\) expects array\<array\<string\>\|string\>\|string, array\<int\|string, mixed\> given\.$#'
+			message: '#^Parameter \#1 \.\.\.\$args of method TailwindClassMerge\\Contracts\\TailwindClassMergeContract\:\:merge\(\) expects array\<array\<string\>\|string\>\|string, array\<int\|string, mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/TailwindMergeServiceProvider.php
+			path: src/TailwindClassMergeServiceProvider.php
 
 		-
-			message: '#^Parameter \#2 \.\.\.\$args of method TailwindMerge\\Contracts\\TailwindMergeContract\:\:merge\(\) expects array\<array\<string\>\|string\>\|string, mixed given\.$#'
+			message: '#^Parameter \#2 \.\.\.\$args of method TailwindClassMerge\\Contracts\\TailwindClassMergeContract\:\:merge\(\) expects array\<array\<string\>\|string\>\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/TailwindMergeServiceProvider.php
+			path: src/TailwindClassMergeServiceProvider.php
 
 		-
 			message: '#^Cannot call method merge\(\) on mixed\.$#'
@@ -31,7 +31,7 @@ parameters:
 			path: src/helpers.php
 
 		-
-			message: '#^Function twMerge\(\) should return string but returns mixed\.$#'
+			message: '#^Function tailwindClass\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/helpers.php

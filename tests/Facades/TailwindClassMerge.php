@@ -3,21 +3,21 @@
 declare(strict_types=1);
 
 use Illuminate\Config\Repository;
-use TailwindMerge\Laravel\Facades\TailwindMerge;
-use TailwindMerge\Laravel\TailwindMergeServiceProvider;
+use TailwindClassMerge\Laravel\Facades\TailwindClassMerge;
+use TailwindClassMerge\Laravel\TailwindClassMergeServiceProvider;
 
 it('resolves resources', function () {
     $app = app();
 
     $app->bind('config', fn () => new Repository([
-        'tailwind-merge' => [
+        'tailwind-class-merge' => [
         ],
     ]));
 
-    (new TailwindMergeServiceProvider($app))->register();
+    (new TailwindClassMergeServiceProvider($app))->register();
 
     TailwindMerge::setFacadeApplication($app);
 
-    expect(TailwindMerge::merge('h-4 h-6'))
+    expect(TailwindClassMerge::merge('h-4 h-6'))
         ->toBe('h-6');
 });

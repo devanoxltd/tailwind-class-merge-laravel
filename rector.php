@@ -14,7 +14,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->skip([
         ClosureToArrowFunctionRector::class => [
-            __DIR__ . '/src/TailwindMergeServiceProvider.php',
+            __DIR__ . '/src/TailwindClassMergeServiceProvider.php',
         ],
     ]);
 
