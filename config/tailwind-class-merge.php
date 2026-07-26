@@ -5,6 +5,19 @@ declare(strict_types=1);
 return [
     /*
     |--------------------------------------------------------------------------
+    | Cache
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the cache driver that should be used to cache
+    | the merged classes. You can set it to false to disable caching
+    | entirely. You can also use any other cache driver supported by Laravel.
+    | To use default cache driver, set it to null.
+    |
+    */
+    'cache' => env('TAILWIND_MERGE_CACHE', null),
+
+    /*
+    |--------------------------------------------------------------------------
     | Prefix
     |--------------------------------------------------------------------------
     |
@@ -18,7 +31,7 @@ return [
     | Class groups
     |--------------------------------------------------------------------------
     |
-    | If TailwindClassMerge is not able to merge your changes properly you can
+    | If TailwindMerge is not able to merge your changes properly you can
     | modify the merge process by modifying existing class groups or adding
     | new class groups.
     |
