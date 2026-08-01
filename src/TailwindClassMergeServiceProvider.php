@@ -45,7 +45,7 @@ class TailwindClassMergeServiceProvider extends BaseServiceProvider
 
     protected function registerBladeDirectives(): void
     {
-        $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler): void {
+        $this->callAfterResolving('blade.compiler', function (BladeCompiler $bladeCompiler): void {
             $name = config('tailwind-class-merge.blade_directive', 'tailwindClass');
 
             if ($name === null) {
